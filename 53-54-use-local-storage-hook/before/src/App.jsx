@@ -1,63 +1,65 @@
+import { useLocalStorage } from './useLocalStorage';
+
 function App() {
-  const [firstName, setFirstName] = useLocalStorage("FIRST_NAME", "")
+  const [firstName, setFirstName] = useLocalStorage('FIRST_NAME', '');
 
   // Bonus:
-  // const [lastName, setLastName] = useLocalStorage("LAST_NAME", () => {
-  //   return "Default"
-  // })
+  const [lastName, setLastName] = useLocalStorage('LAST_NAME', () => {
+    return 'Default';
+  });
 
   // Bonus:
-  // const [hobbies, setHobbies] = useLocalStorage("HOBBIES", [
-  //   "Programming",
-  //   "Weight Lifting",
-  // ])
+  const [hobbies, setHobbies] = useLocalStorage('HOBBIES', [
+    'Programming',
+    'Weight Lifting',
+  ]);
 
   return (
     <>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          marginBottom: "1rem",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          marginBottom: '1rem',
         }}
       >
         <label>First Name</label>
         <input
-          type="text"
+          type='text'
           value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
 
       {/* Bonus: */}
-      {/* <div
+      <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          marginBottom: "1rem",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          marginBottom: '1rem',
         }}
       >
         <label>Last Name</label>
         <input
-          type="text"
+          type='text'
           value={lastName}
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
         />
-      </div> */}
+      </div>
 
       {/* Bonus: */}
-      {/* <div>{hobbies.join(", ")}</div>
+      <div>{hobbies.join(', ')}</div>
       <button
         onClick={() =>
-          setHobbies(currentHobbies => [...currentHobbies, "New Hobby"])
+          setHobbies((currentHobbies) => [...currentHobbies, 'New Hobby'])
         }
       >
         Add Hobby
-      </button> */}
+      </button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
